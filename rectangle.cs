@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using shapes;
 
-namespace shape
+namespace shapes
 {
     internal class Rectangle : Shapes
     {

@@ -8,22 +8,27 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using shapes;
 
-namespace shape
+
+namespace shapes
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("Добро пожаловать в программу");
             Console.WriteLine("Выберите тип фигуры:\n1-Треугольник;\n2-Прямоугольник;\n3-Окружность.");
+            
+            string path = "listOfShapes.txt";
+            
             int action = Convert.ToInt32(Console.ReadLine());
-
             if (action == 1)
             {
                 Triangles ta = new Triangles();
@@ -40,8 +45,18 @@ namespace shape
                 ta.sideC = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("\n");
 
+
+                
+                
                 Console.WriteLine($"Диаметр треугольника: {ta.PerimeterShape(ta.sideA, ta.sideB, ta.sideC)} (см)");
                 Console.WriteLine($"Площадь треугольника: {ta.SquareShape(ta.sideA, ta.sideB, ta.sideC)} (см кв)");
+
+                string test = "Диаметр треугольника: " + 
+                    Convert.ToString(ta.PerimeterShape(ta.sideA, ta.sideB, ta.sideC)) + 
+                    "\n" + "Площадь треугольника: " + 
+                    Convert.ToString(ta.SquareShape(ta.sideA, ta.sideB, ta.sideC));
+                    WRFS.AppendString(path, test, true);
+
             }
 
             else if (action == 2)
@@ -63,8 +78,16 @@ namespace shape
                 Console.Write("Укажите сторону D: ");
                 ra.sideD = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine($"Диаметр треугольника: {ra.PerimeterShape(ra.sideA, ra.sideB, ra.sideC, ra.sideD)} (см)");
-                Console.WriteLine($"Площадь треугольника: {ra.SquareShape(ra.sideA, ra.sideB, ra.sideC, ra.sideD)} (см кв)");
+                Console.WriteLine($"Диаметр прямоугольника: {ra.PerimeterShape(ra.sideA, ra.sideB, ra.sideC, ra.sideD)} (см)");
+                Console.WriteLine($"Площадь прямоугольника: {ra.SquareShape(ra.sideA, ra.sideB, ra.sideC, ra.sideD)} (см кв)");
+
+                string test = "Диаметр прямоугольника: " +
+                    Convert.ToString(ra.PerimeterShape(ra.sideA, ra.sideB, ra.sideC, ra.sideD)) +
+                    "\n" + "Площадь прямоугольника: " +
+                    Convert.ToString(ra.SquareShape(ra.sideA, ra.sideB, ra.sideC, ra.sideD));
+                WRFS.AppendString(path, test, true);
+
+
             }
             else if (action == 3)
             {
@@ -74,6 +97,12 @@ namespace shape
                 circle.sideA = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine($"Диаметр окружности: {circle.PerimeterShape(circle.sideA)} (см)");
                 Console.WriteLine($"Площадь окружности: {circle.SquareShape(circle.sideA)} (см кв)");
+
+                string test = "Диаметр окружности: " +
+                    Convert.ToString(circle.PerimeterShape(circle.sideA)) +
+                    "\n" + "Площадь окружности: " +
+                    Convert.ToString(circle.SquareShape(circle.sideA));
+                WRFS.AppendString(path, test, true);
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using shape;
+
 using shapes;
 
 namespace shapes
@@ -25,11 +25,6 @@ namespace shapes
         {
             return sideA + sideB + sideB + sideC + sideD;
         }
-
-        ////public virtual int SquareShape(int sideA, int sideB, int sideC, int sideD)
-        ////{
-        ////        return sideA * sideB * sideC * sideD;
-        ////}
 
         public virtual double SquareShape(double sideA, double sideB, double sideC, double sideD)
         {

@@ -49,6 +49,7 @@
     <Compile Include="rectangle.cs" />
     <Compile Include="Shapes.cs" />
     <Compile Include="Triangles.cs" />
+    <Compile Include="WRFS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
